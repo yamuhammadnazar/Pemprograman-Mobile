@@ -1,0 +1,36 @@
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioAyam"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ayam" />
+
+            <RadioButton
+                android:id="@+id/radioSapi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Sapi" />
+
+            <RadioButton
+                android:id="@+id/radioKambing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Kambing" />
+
+        </RadioGroup>
+        
+    </LinearLayout>
