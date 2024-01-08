@@ -1,0 +1,142 @@
+/langkah 1/
+
+1. activity_main
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioAyam"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/music"
+                android:text="Ayam" />
+
+            <RadioButton
+                android:id="@+id/radioSapi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Sapi" />
+
+            <RadioButton
+                android:id="@+id/radioKambing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Kambing" />
+
+        </RadioGroup>
+
+    </LinearLayout>
+
+  <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="KlikPreview"
+        tools:ignore="SpeakableTextPresentCheck"
+        android:text="Klik disini">
+  </Button>
+
+note : yang paling penting adalag ID @radioGroup untuk menghubungkan dengan Main Activity
+
+2. Main Activity
+
+    *Dekralasikan ini terlebih dahulu
+
+    RadioGroup radioGroup;
+    RadioButton radioButton;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        radioGroup = findViewById(R.id.radioGroup); *Tambahkan ini
+    }
+
+    *Ini adalah kode untuk button sekaligus radio button serta logikanya menggunakan shared preferences
+
+        public void KlikPreview(View view) {
+                Intent intent = new Intent(this, Add.class);
+                startActivity(intent);
+        
+                int selectedRadioButtonID = radioGroup.getCheckedRadioButtonId();
+                radioButton = findViewById(selectedRadioButtonID);
+                String PilihMenu = radioButton.getText().toString();
+        
+                SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("Add_data", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+        
+                editor.putString("SAVED_Menu", PilihMenu);
+                editor.apply();
+                
+              }
+
+      *Code yang telah dirapikan chat Gpt
+          
+              public void KlikPreview(View view) {
+                  Intent intent = new Intent(this, Add.class);
+                  startActivity(intent);
+          
+                  int selectedRadioButtonID = radioGroup.getCheckedRadioButtonId();
+                  radioButton = findViewById(selectedRadioButtonID);
+          
+                  if (radioButton != null) {
+                      String PilihMenu = radioButton.getText().toString();
+          
+                      SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("Add_data", Context.MODE_PRIVATE);
+                      SharedPreferences.Editor editor = sharedPreferences.edit();
+          
+                      editor.putString("SAVED_Menu", PilihMenu);
+                      editor.apply();
+                  } else {
+                      // Handle jika tidak ada radio button yang dipilih
+                      Toast.makeText(this, "Pilih salah satu menu terlebih dahulu", Toast.LENGTH_SHORT).show();
+                  }
+              }
+
+    *Code yang telah dilengkapi Alert
+
+      
+    public void KlikPreview(View view) {
+        int selectedRadioButtonID = radioGroup.getCheckedRadioButtonId();
+
+        if (selectedRadioButtonID != -1) {
+            radioButton = findViewById(selectedRadioButtonID);
+            String PilihMenu = radioButton.getText().toString();
+
+            SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("Add_data", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+
+            editor.putString("SAVED_Menu", PilihMenu);
+            editor.apply();
+
+            // Lanjut ke halaman selanjutnya (Add.class)
+            Intent intent = new Intent(this, Add.class);
+            startActivity(intent);
+        } else {
+            // Tampilkan AlertDialog jika tidak ada radio button yang dipilih
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Peringatan");
+            builder.setMessage("Pilih salah satu menu terlebih dahulu");
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    // Tidak melakukan apa-apa atau Anda dapat menambahkan tindakan tambahan di sini
+                }
+            });
+            builder.show();
+        }
+    }
+
+
