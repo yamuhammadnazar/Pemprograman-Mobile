@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:text="WIFI"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="KlikPreview"/>
+
+        <ToggleButton
+            android:id="@+id/toggleButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textOn="ON"
+            android:textOff="OFF"
+            android:checked="false"
+            android:layout_centerInParent="true" />
+
+        <Button
+            android:id="@+id/myButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="My Button"
+            android:layout_centerInParent="true"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/myButtonKiri"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="My Button"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="start"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/myButtonKanan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="My Button"
+            android:layout_marginStart="280dp"
+            android:layout_marginTop="20dp"/>
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="KlikPreview"
+        tools:ignore="SpeakableTextPresentCheck">
+    </Button>
+
+</LinearLayout>
