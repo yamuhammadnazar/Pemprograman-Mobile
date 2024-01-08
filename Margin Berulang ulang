@@ -4,3 +4,8 @@ buka value, klik kanan lalu resorces file, selesai.
     <dimen name="margin_standard">10dp</dimen>
 </resources>
 
+
+/pengaplikasian code/
+
+android:layout_marginStart="@dimen/margin_standard"
+
