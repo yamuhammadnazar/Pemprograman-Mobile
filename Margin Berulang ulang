@@ -1,0 +1,6 @@
+buka value, klik kanan lalu resorces file, selesai.
+
+<resources>
+    <dimen name="margin_standard">10dp</dimen>
+</resources>
+
