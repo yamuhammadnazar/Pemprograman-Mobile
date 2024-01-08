@@ -1,0 +1,56 @@
+/LangkaH Pertama Buat Folder menu di Res/
+
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.yamuhammadnazar.namaPackage.MainActivity">
+
+    <item
+        android:id="@+id/action_order"
+        android:orderInCategory="10"
+        android:title="@string/action_order"
+        android:icon="@drawable/ic_order_white"
+        app:showAsAction="always">
+    </item>
+
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="50"
+        android:title="Settings"
+        app:showAsAction="never" />
+</menu>
+
+/Langkah kedua Download Image/vektor dan simpan ke drawable/
+
+/Langkah ketiga Copy code ini dan dimpan di main activity/
+
+1. Deklarasi Method
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+2. Logika Pemprograman untuk menu
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+
+        if (id == R.id.action_order) {
+            displayToast(getString(R.string.action_order_message));
+            return true;
+        } else if (id == R.id.action_settings) {
+            Intent intent = new Intent(this, Add.class);
+            startActivity(intent);
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void displayToast(String string) {
+    }
