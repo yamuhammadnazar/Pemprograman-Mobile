@@ -1,0 +1,16 @@
+/Langkah 1 Activity main
+
+<Switch
+        android:id="@+id/wifiSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="WiFi"/>
+
+/langkah 2 main activity
+
+ wifiSwitch = findViewById(R.id.wifiSwitch);
+
+          // Tambahkan kode berikut untuk switch WiFi
+          Switch wifiSwitch = findViewById(R.id.wifiSwitch);
+          boolean isWifiEnabled = wifiSwitch.isChecked();
+          editor.putBoolean("WIFI_ENABLED", isWifiEnabled);
